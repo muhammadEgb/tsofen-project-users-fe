@@ -1,0 +1,21 @@
+section {
+  background-color: whitesmoke;
+  border: solid;
+  display: grid;
+  grid-template-columns: [col1] 25% auto;
+  height: 100%;
+}
+.login-form {
+  align-items: center;
+  padding: 20px;
+}
+aside {
+  grid-column: 3span;
+  display: inline;
+  border: solid;
+}
+main {
+  grid-column: 9span;
+  display: inline;
+  border: solid;
+}

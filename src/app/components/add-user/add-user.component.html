@@ -1,0 +1,67 @@
+<div class="add-user">
+    <form action="#" #formInfo="ngForm">
+        <!-- First-Name -->
+        <div class="form-control fname">
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input id="fname" name="fname" type="text" matInput [(ngModel)] = "user.fname" required pattern="^[A-Z][a-zA-Z]+$" #fnameInfo="ngModel">
+            </mat-form-field><br/>
+            <span class="alert" *ngIf="fnameInfo.errors?.['required'] && fnameInfo.touched">First Name is Required!</span>
+            <span class="alert" *ngIf="fnameInfo.errors?.['pattern'] && fnameInfo.touched">First Name is not Valid!</span>
+        </div>
+        <!-- Last-Name -->
+        <div class="form-control lname">
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input id="lname" name="lname" type="text" matInput [(ngModel)] = "user.lname" required pattern="^[A-Z][a-zA-Z]+$" #lnameInfo="ngModel">
+            </mat-form-field><br/>
+            <span class="alert" *ngIf="lnameInfo.errors?.['required'] && lnameInfo.touched">Last Name is Required!</span>
+            <span class="alert" *ngIf="lnameInfo.errors?.['pattern'] && lnameInfo.touched">Last Name is not Valid!</span>
+        </div>
+        <!-- Phone -->
+        <div class="form-control phone">
+            <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input id="phone" name="phone" matInput [(ngModel)] = "user.phone" required  type="text" pattern="^05\d([-]{0,1})\d{7}$" #phoneInfo="ngModel">
+            </mat-form-field><br/>
+        <span class="alert" *ngIf="phoneInfo.errors?.['required'] && phoneInfo.touched">Phone is Required!</span>
+        <span class="alert" *ngIf="phoneInfo.errors?.['pattern'] && phoneInfo.touched">Phone is not Valid!</span>
+        </div>
+        <!-- Email -->
+        <div class="form-control email">
+            <mat-form-field appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input id="email" name="email" type="email" matInput [(ngModel)] = "user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailInfo="ngModel">
+            </mat-form-field><br/>
+            <span class="alert" *ngIf="emailInfo.errors?.['required'] && emailInfo.touched">Email is Required!</span>
+            <span class="alert" *ngIf="emailInfo.errors?.['pattern'] && emailInfo.touched">Email is not Valid!</span>
+        </div>
+        <!-- Password -->
+        <div class="form-control password">
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input id="password" name="password" matInput [(ngModel)] = "user.password" required  type="password" #passwordInfo="ngModel">
+            </mat-form-field><br/>
+            <span class="alert" *ngIf="passwordInfo.errors?.['required'] && passwordInfo.touched">Password is Required!</span>
+        </div>
+        <!-- Role -->
+        <div class="form-control role">
+            <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select required [(ngModel)]="user.role" name="role" id="role" #roleInfo="ngModel">
+                    <mat-option value="School Admin">School Admin</mat-option>
+                    <mat-option value="School Staff">School Staff</mat-option>
+                    <mat-option value="Program Manager">Program Manager</mat-option>
+                    <mat-option value="Student">Student</mat-option>
+                </mat-select><br/>
+            </mat-form-field><br/>
+            <span class="alert" *ngIf="roleInfo.errors?.['required'] && roleInfo.touched">Role is Required!</span>
+        </div>
+        <div class="form-control actions">
+            <button (click)="add()" mat-raised-button color="primary" [disabled]="!formInfo.form.valid">Login</button>
+        </div>
+        <div class="form-control status">
+            <img *ngIf="addStatus" src="/assets/{{picStatus}}.png" width="50"/>
+        </div>
+    </form>
+</div>

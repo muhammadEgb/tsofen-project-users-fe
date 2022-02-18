@@ -1,0 +1,24 @@
+.add-user {
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control {
+  padding: 10px;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert {
+  color: red;
+}

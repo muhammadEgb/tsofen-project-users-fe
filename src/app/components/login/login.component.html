@@ -1,0 +1,26 @@
+<div class="login">
+    <form action="#" #formInfo="ngForm">
+        <div class="form-control email">
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input id="email" name="email" type="email" matInput [(ngModel)] = "user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailInfo="ngModel">
+        </mat-form-field><br/>
+        <span class="alert" *ngIf="emailInfo.errors?.['required'] && emailInfo.touched">Email is Required!</span>
+        <span class="alert" *ngIf="emailInfo.errors?.['pattern'] && emailInfo.touched">Email is not Valid!</span>
+        </div>
+
+        <div class="form-control password">
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input id="password" name="password" matInput [(ngModel)] = "user.password" required  type="password" #passwordInfo="ngModel">
+        </mat-form-field><br/>
+        <span class="alert" *ngIf="passwordInfo.errors?.['required'] && passwordInfo.touched">Password is Required!</span>
+        </div>
+        <div class="form-control actions">
+            <button (click)="login()" mat-raised-button color="primary" [disabled]="!formInfo.form.valid">Login</button>
+        </div>
+        <div class="form-control status">
+            <img *ngIf="logStatus" src="/assets/{{picStatus}}.png" width="50"/>
+        </div>
+    </form>
+</div>

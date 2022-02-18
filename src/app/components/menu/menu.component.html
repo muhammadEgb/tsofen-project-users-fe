@@ -1,0 +1,8 @@
+<div class="menu">
+    <h2>Menu</h2>
+    <ul>
+        <li *ngFor="let option of options">
+            <a routerLink="{{option.route}}" routerLinkActive="active-link">{{option.name}}</a>
+        </li>
+    </ul>
+</div>

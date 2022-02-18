@@ -1,0 +1,10 @@
+.menu {
+  text-align: center;
+  padding: 15px;
+}
+li {
+  list-style: none;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+}
